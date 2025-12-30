@@ -20,6 +20,23 @@
     }
     .hero .container { position: relative; z-index: 2; }
     .hero .lead { color: rgba(255,255,255,0.95); }
+
+    /* Photo collage (horizontal scrolling) */
+    .photo-collage { overflow: hidden; padding: 30px 0; }
+    .photo-collage__track {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        /* duplicate set will allow seamless loop */
+        animation: scroll-left 30s linear infinite;
+    }
+    .photo-collage__item { flex: 0 0 auto; width: 220px; height: 140px; border-radius: 8px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+    .photo-collage__item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    @keyframes scroll-left {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-50%); }
+    }
 </style>
 <header class="hero text-center mb-4">
     <div class="container">
@@ -46,6 +63,30 @@
                 </div>
             </div>
             {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section id="kolase" class="photo-collage bg-light">
+    <div class="container">
+        <h3 class="fw-bold mb-3 text-ums">Galeri Foto</h3>
+        <div class="photo-collage__viewport">
+            <div class="photo-collage__track">
+                <!-- Replace these image paths with your actual images under media/asset/ -->
+                <div class="photo-collage__item"><img src="/media/asset/gambar1.jpg" alt="foto1"></div>
+                <div class="photo-collage__item"><img src="/media/asset/gambar2.jpg" alt="foto2"></div>
+                <div class="photo-collage__item"><img src="/media/asset/gambar3.jpg" alt="foto3"></div>
+                <div class="photo-collage__item"><img src="/media/asset/gambar4.jpg" alt="foto4"></div>
+                <div class="photo-collage__item"><img src="/media/asset/gambar5.webp" alt="foto5"></div>
+                <div class="photo-collage__item"><img src="/media/asset/gambar6.jpg" alt="foto6"></div>
+                <!-- duplicate set for seamless scroll -->
+                <div class="photo-collage__item"><img src="/media/asset/gambar1.jpg" alt="foto1"></div>
+                <div class="photo-collage__item"><img src="/media/asset/gambar2.jpg" alt="foto2"></div>
+                <div class="photo-collage__item"><img src="/media/asset/gambar3.jpg" alt="foto3"></div>
+                <div class="photo-collage__item"><img src="/media/asset/gambar4.jpg" alt="foto4"></div>
+                <div class="photo-collage__item"><img src="/media/asset/gambar5.webp" alt="foto5"></div>
+                <div class="photo-collage__item"><img src="/media/asset/gambar6.jpg" alt="foto6"></div>
+            </div>
         </div>
     </div>
 </section>
